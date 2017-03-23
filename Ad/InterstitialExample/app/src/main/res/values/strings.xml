@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">InterstitialExample</string>
+    <string name="impossible_game">Impossible Game</string>
+    <!--Replace with your own qianxun_support_appkey. -->
+    <string name="qianxun_support_appkey">37cb2ee9f50c076b974072469e418bc1</string>
+</resources>

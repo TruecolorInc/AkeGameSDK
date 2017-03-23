@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.truecolor.interstitialexample"
+        minSdkVersion 19
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    maven {
+        url "http://maven.1kxun.com"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    // multidex method 65536
+    compile 'com.android.support:multidex:1.0.1'
+
+    compile'com.google.android.gms:play-services:10.2.0'
+
+    //Mobvista
+    compile 'com.mobvista.msdk:common:8.1.15'
+    compile 'com.mobvista.msdk:videocommon:8.1.15'
+    compile 'com.mobvista.msdk:reward:8.1.15'
+    compile 'com.mobvista.msdk:mvjscommon:8.1.15'
+    compile 'com.mobvista.msdk:playercommon:8.1.15'
+}
