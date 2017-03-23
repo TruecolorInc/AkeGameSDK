@@ -31,8 +31,8 @@ dependencies {
     // multidex method 65536
     compile 'com.android.support:multidex:1.0.1'
 
-    compile'com.google.android.gms:play-services:10.2.0'
-
+//    compile 'com.google.android.gms:play-services:10.2.0'
+    compile 'com.google.android.gms:play-services-ads:10.2.0'
     //Mobvista
     compile 'com.mobvista.msdk:common:8.1.15'
     compile 'com.mobvista.msdk:videocommon:8.1.15'

@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final long GAME_LENGTH_MILLISECONDS = 3000;
 
-    private AdInterstitialView mInterstitialAd;
     private CountDownTimer mCountDownTimer;
     private Button mRetryButton;
     private boolean mGameIsInProgress;
@@ -45,15 +44,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize  QianxunUtils
         QianxunUtils.onCreate(this);
 
-        // Create the InterstitialAdView
-        mInterstitialAd = new AdInterstitialView(this);
-QianxunUtils.dismissFloatWindow();
-        //测试 单个 广告 源的广告
-//        mInterstitialAd.setAdVendor(AdConfigure.getVendorName(AdConfigure.AD_VENDOR_MOBVISTA));
-//        mInterstitialAd.setAdVendor(AdConfigure.getVendorName(AdConfigure.AD_VENDOR_VUNGLE));
-//        mInterstitialAd.setAdVendor(AdConfigure.getVendorName(AdConfigure.AD_VENDOR_ADMOB));
-
-        mInterstitialAd.setListener(new com.truecolor.ad.AdListener() {
+        QianxunUtils.initAdInterstitial(this, new com.truecolor.ad.AdListener() {
 
             @Override
             public void onReceiveAdFailed(int arg0, int arg1) {
@@ -165,9 +156,10 @@ QianxunUtils.dismissFloatWindow();
     }
 
     private void showInterstitial() {
-        // Show the ad if it's ready. Otherwise toast and restart the game.
-        if(mInterstitialAd != null && mInterstitialAd.isAvailable()) {
-            mInterstitialAd.show();
+//         Show the ad if it's ready. Otherwise toast and restart the game.
+        boolean isShow = QianxunUtils.showAdInterstitial();
+        if(isShow) {
+            Toast.makeText(this, "广告展示成功", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
             startGame();
@@ -176,10 +168,6 @@ QianxunUtils.dismissFloatWindow();
 
     private void startGame() {
         // Request a new ad if one isn't already loaded, hide the button, and kick off the timer.
-        if(!mInterstitialAd.isAvailable()) {
-            mInterstitialAd.loadAd();
-        }
-
         mRetryButton.setVisibility(View.INVISIBLE);
         resumeGame(GAME_LENGTH_MILLISECONDS);
     }
