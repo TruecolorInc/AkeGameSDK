@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SplashExample</string>
-    <string name="qianxun_support_appkey">37cb2ee9f50c076b974072469e418bc1</string>
+    <!--<string name="qianxun_support_appkey">37cb2ee9f50c076b974072469e418bc1</string>-->
+    <string name="qianxun_support_appkey">ffc92d856681cdff013cba59df3bdd5e</string>
     <string name="copy_right">千寻网版权所有</string>
     <string name="web_site" translatable="false">www.1kxun.com</string>
 </resources>
