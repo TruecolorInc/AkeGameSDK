@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         QianxunUtils.onCreate(this);
-        QianxunUtils.showQxSplash(this,R.layout.your_custom_splash_layout);
+//        QianxunUtils.showQxSplash(this,R.layout.your_custom_splash_layout);
+        QianxunUtils.showQxSplash(this,R.layout.your_transparenst_layout);
     }
 }
