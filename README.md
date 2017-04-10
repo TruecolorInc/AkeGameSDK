@@ -6,6 +6,7 @@
 
 
 ## 主要包含几大模块
+- [下载最新的jar](https://github.com/xuxu5112/QxGameSDKSamples/blob/master/qianxun_game_sdk_2017_03_31.jar)
 
 - AD
 
