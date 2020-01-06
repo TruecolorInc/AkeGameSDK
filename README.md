@@ -6,6 +6,8 @@
 v1.0.0
 ```
 
+- [下载最新的aar]()
+
 [对接文档](https://github.com/xuxu5112/QxGameSDKSamples/wiki)
 
 ## Examples
