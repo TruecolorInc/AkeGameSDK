@@ -6,7 +6,7 @@
 v1.0.0
 ```
 
-- [下载最新的aar]()
+- [下载最新的aar](https://raw.githubusercontent.com/TruecolorInc/QxGameSDK/master/aar/sdk-release.aar)
 
 [对接文档](https://github.com/xuxu5112/QxGameSDKSamples/wiki)
 
