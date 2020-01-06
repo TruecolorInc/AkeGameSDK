@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">QxGameSDKDemo</string>
+
+    <string name="login">Login</string>
+    <string name="query">Query</string>
+    <string name="pay">Pay</string>
+    <string name="change_password">ChangePassword</string>
+    <string name="logout">Logout</string>
+    <string name="share">Share(FaceBook)</string>
+    <string name="invitation">Invitation(FaceBook)</string>
+    <string name="fast_login">FastLogin</string>
+    <string name="show_float">ShowFloat</string>
+    <string name="dismiss_float">DismissFloat</string>
+    <string name="authorize">授权</string>
+    <string name="show_ad">广告</string>
+    <string name="ad_vungle">ad_vungle</string>
+    <string name="ad_admob">ad_admob</string>
+    <string name="ad_qxun">ad_qxun</string>
+    <string name="ad_mobvista">AD_MOBVISTA</string>
+    <string name="qianxun_support_appkey">540c07178a29a6a703e84ffd7f4767c4</string>
+    <string name="facebook_app_id">768615870286580</string>
+    <string name="fb_login_protocol_scheme">fb768615870286580</string>
+
+</resources>
