@@ -27,6 +27,7 @@ public class DemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        QianxunUtils.onCreate(DemoActivity.this);
         findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,5 +198,36 @@ public class DemoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "logout Failed", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        QianxunUtils.onStart(DemoActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        QianxunUtils.onResume(DemoActivity.this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        QianxunUtils.onStop(DemoActivity.this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        QianxunUtils.onPause(DemoActivity.this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        QianxunUtils.onDestroy(DemoActivity.this);
     }
 }

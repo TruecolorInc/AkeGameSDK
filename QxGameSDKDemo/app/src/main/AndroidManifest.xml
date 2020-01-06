@@ -32,15 +32,16 @@
             android:exported="true"
             android:grantUriPermissions="true" />
 
+        <activity
+            android:name="com.qianxun.game.sdk.account.QxAuthorizeActivity"
+            android:screenOrientation="portrait" />
+
         <!-- 换成你的AppKey 找运营人员获取      -->
         <meta-data
             android:name="qianxun.support.appkey"
             android:value="@string/qianxun_support_appkey" />
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
+        <!-- Facebook Setting       -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -61,10 +62,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.qianxun.game.sdk.account.QxAuthorizeActivity"
-            android:screenOrientation="portrait" />
+        <!-- Facebook Setting       -->
     </application>
 
 </manifest>
