@@ -11,3 +11,4 @@ v1.0.0
 [对接文档](https://github.com/xuxu5112/QxGameSDKSamples/wiki)
 
 ## Examples
+- QxGameSDK  SDK的基础用法
