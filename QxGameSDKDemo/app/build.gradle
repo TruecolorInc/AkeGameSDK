@@ -27,7 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation files('libs/sdk-release.aar')
     implementation 'com.facebook.android:facebook-login:[5,6)'
-//    api project(':facebook-sdk')
+    implementation 'com.qianxun.game.sdk:sdk:1.0.0'
 }
