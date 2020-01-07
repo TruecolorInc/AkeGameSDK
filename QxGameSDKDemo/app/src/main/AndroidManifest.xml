@@ -29,7 +29,7 @@
         <provider
             android:name="com.qianxun.game.sdk.account.QxAccountProvider"
             android:authorities="${applicationId}.qxaccountcontentprovider"
-            android:exported="true"
+            android:exported="false"
             android:grantUriPermissions="true" />
 
         <activity
