@@ -1,29 +1,25 @@
-# QxGameSDK
+#### QxGameSDK
 
-提供千寻GameSDK 各个功能的Demo方便对接SDK。
-
+提供AkeGameSDK 各个功能的Demo方便对接SDK。
 
 [对接文档](https://github.com/xuxu5112/QxGameSDKSamples/wiki)
 
-## Examples
-- QxGameSDKDemo  SDK的基础用法
+#### Examples
 
+- AkeGameDemo  SDK的基础用法
 
+#### 对接物料目录
 
-#  CP方提供
-
-- 默认活动类名
-
-- 秘钥散列 生成方式见 
-- 支付回调接口
-
-
-
-秘钥散列生成方式
-
-https://developers.facebook.com/docs/facebook-login/android?locale=zh_CN
-
-> keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
-
-
+* SDK方
+  * demo & 对接文档
+  * 在给到包名后，app_key&secret_key
+  * 在给到包名后，appsflyer_key
+  * 在给到facebook物料后，facebook_app_id & fb_login_protocol_scheme 
+  * 在给到google签名sha后，将给到对应的google-service.json文件
+* CP方
+  * 游戏授权包名
+  * 支付callback_url
+  * 对接facebook登录：默认Activity类名 & 签名key hash
+  * 对接google登录：签名SHA1&SHA-256 
+  * google in app pay 测试google账户email
 

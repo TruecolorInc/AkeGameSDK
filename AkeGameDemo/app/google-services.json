@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "850797194605",
+    "project_id": "akegametest",
+    "storage_bucket": "akegametest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850797194605:android:d92fff21ee09b7793c7e64",
+        "android_client_info": {
+          "package_name": "media.ake.game.sdk.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850797194605-f2ec5q8ovcs9o7q88p9fh60o62u46d09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "media.ake.game.sdk.demo",
+            "certificate_hash": "f420ce9e0b779f223319b3cfc2934750672890e9"
+          }
+        },
+        {
+          "client_id": "850797194605-a6rdjhev831guilfl7olu7la7aeparrc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdVxKwGrugvo-SvoEjTb3ZJIV0-K5Tzkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850797194605-a6rdjhev831guilfl7olu7la7aeparrc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
