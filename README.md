@@ -1,4 +1,4 @@
-#### QxGameSDK
+#### AkeGameSDK
 
 提供AkeGameSDK 各个功能的Demo方便对接SDK。
 
