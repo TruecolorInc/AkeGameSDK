@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">GameSdkDemo</string>
+
+    <string name="login_by_app">千寻系Apps授权登录</string>
     <string name="query">查询商品列表</string>
     <string name="pay">支付购买商品</string>
     <string name="logout">注销登录</string>

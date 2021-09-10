@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -32,7 +33,8 @@ public class DemoActivity extends AppCompatActivity {
         findViewById(R.id.pay).setVisibility(View.VISIBLE);
         findViewById(R.id.logout).setVisibility(View.VISIBLE);
         findViewById(R.id.login_by_google).setVisibility(View.GONE);
-        findViewById(R.id.login_by_fackbook).setVisibility(View.GONE);
+        findViewById(R.id.login_by_facebook).setVisibility(View.GONE);
+        findViewById(R.id.login_by_app).setVisibility(View.GONE);
     }
 
     private void shownLogin() {
@@ -40,7 +42,8 @@ public class DemoActivity extends AppCompatActivity {
         findViewById(R.id.pay).setVisibility(View.GONE);
         findViewById(R.id.logout).setVisibility(View.GONE);
         findViewById(R.id.login_by_google).setVisibility(View.VISIBLE);
-        findViewById(R.id.login_by_fackbook).setVisibility(View.VISIBLE);
+        findViewById(R.id.login_by_facebook).setVisibility(View.VISIBLE);
+        findViewById(R.id.login_by_app).setVisibility(View.VISIBLE);
     }
 
     private void clean() {
@@ -57,7 +60,28 @@ public class DemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_demo);
         clean();
 
-        findViewById(R.id.login_by_fackbook).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.login_by_app).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(TextUtils.isEmpty(mUserId)) {
+                    LoginManager.getInstance().loginByApp(DemoActivity.this, new OnLoginListener() {
+                        @Override
+                        public void onLoginSuccess(@NotNull String uid, long timestamp, @Nullable String sign) {
+                            mUserId = uid;
+                            Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
+                            shownLogicBtn();
+                        }
+
+                        @Override
+                        public void onLoginFailed(String message) {
+                            Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+
+        findViewById(R.id.login_by_facebook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LoginManager.getInstance().loginByFaceBook(DemoActivity.this, new OnLoginListener() {
@@ -118,7 +142,7 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     private void query() {
-        if (mUserId == null) {
+        if(mUserId == null) {
             Toast.makeText(DemoActivity.this, "login first", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -138,7 +162,7 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     private void showItemList() {
-        if (mItems == null) {
+        if(mItems == null) {
             Toast.makeText(DemoActivity.this, "query first", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -147,7 +171,7 @@ public class DemoActivity extends AppCompatActivity {
         builderSingle.setTitle("Select Item");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.select_dialog_item);
-        for (PaymentItem item : mItems) {
+        for(PaymentItem item : mItems) {
             arrayAdapter.add("Item " + item.name + " -- " + item.price);
         }
         builderSingle.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
@@ -161,7 +185,7 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     private void pay(PaymentItem item) {
-        if (mUserId == null) {
+        if(TextUtils.isEmpty(mUserId)) {
             Toast.makeText(DemoActivity.this, "login first", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -174,6 +198,11 @@ public class DemoActivity extends AppCompatActivity {
             @Override
             public void onPayFailed() {
                 Toast.makeText(DemoActivity.this, "pay failed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPayEnd() {
+                Toast.makeText(DemoActivity.this, "pay ended", Toast.LENGTH_SHORT).show();
             }
         });
     }

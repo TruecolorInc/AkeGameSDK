@@ -42,7 +42,7 @@
         android:src="@drawable/ic_gp_login" />
 
     <ImageView
-        android:id="@+id/login_by_fackbook"
+        android:id="@+id/login_by_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/login_by_google"
@@ -50,6 +50,22 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
         android:src="@drawable/ic_fb_login" />
+
+    <Button
+        android:id="@+id/login_by_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/login_by_facebook"
+        android:layout_alignStart="@id/login_by_facebook"
+        android:layout_alignLeft="@id/login_by_facebook"
+        android:layout_alignEnd="@id/login_by_facebook"
+        android:layout_alignRight="@id/login_by_facebook"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:text="@string/login_by_app"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
