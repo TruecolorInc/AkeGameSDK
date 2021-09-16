@@ -189,7 +189,7 @@ public class DemoActivity extends AppCompatActivity {
             Toast.makeText(DemoActivity.this, "login first", Toast.LENGTH_SHORT).show();
             return;
         }
-        PaymentManager.buy(getApplicationContext(), mUserId, item, new OnBuyListener() {
+        PaymentManager.buy(getApplicationContext(), mUserId, "{\"order_id\":\"2a01801210112090563819\"}", item, new OnBuyListener() {
             @Override
             public void onPaySuccess() {
                 Toast.makeText(DemoActivity.this, "pay success", Toast.LENGTH_SHORT).show();
