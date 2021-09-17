@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 import media.ake.game.login.LoginManager;
+import media.ake.game.login.OnAppLoginListener;
 import media.ake.game.login.OnLoginListener;
 import media.ake.game.buy.OnBuyListener;
 import media.ake.game.payment.PaymentManager;
@@ -64,7 +65,18 @@ public class DemoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(mUserId)) {
-                    LoginManager.getInstance().loginByApp(DemoActivity.this, new OnLoginListener() {
+                    LoginManager.getInstance().loginByApp(DemoActivity.this, new OnAppLoginListener() {
+
+                        @Override
+                        public void onAuthorizeStart() {
+                            Toast.makeText(DemoActivity.this, "onAuthorizeStart", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onAuthorizeEnd(boolean isCancelByUser) {
+                            Toast.makeText(DemoActivity.this, "onAuthorizeEnd", Toast.LENGTH_SHORT).show();
+                        }
+
                         @Override
                         public void onLoginSuccess(@NotNull String uid, long timestamp, @Nullable String sign) {
                             mUserId = uid;
