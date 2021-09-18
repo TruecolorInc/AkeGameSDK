@@ -88,6 +88,11 @@ public class DemoActivity extends AppCompatActivity {
                         public void onLoginFailed(String message) {
                             Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
                         }
+
+                        @Override
+                        public void onLoginCanceled() {
+                            Toast.makeText(DemoActivity.this, "login canceled", Toast.LENGTH_SHORT).show();
+                        }
                     });
                 }
             }
@@ -108,6 +113,11 @@ public class DemoActivity extends AppCompatActivity {
                         Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
                         shownLogicBtn();
                     }
+
+                    @Override
+                    public void onLoginCanceled() {
+                        Toast.makeText(DemoActivity.this, "login canceled", Toast.LENGTH_SHORT).show();
+                    }
                 });
             }
         });
@@ -126,6 +136,11 @@ public class DemoActivity extends AppCompatActivity {
                         mUserId = uid;
                         Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
                         shownLogicBtn();
+                    }
+
+                    @Override
+                    public void onLoginCanceled() {
+                        Toast.makeText(DemoActivity.this, "login canceled", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -170,6 +185,11 @@ public class DemoActivity extends AppCompatActivity {
             public void onQueryFailed() {
                 Toast.makeText(DemoActivity.this, "query failed", Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onQueryCanceled() {
+                Toast.makeText(DemoActivity.this, "query canceled", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -208,8 +228,8 @@ public class DemoActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPayFailed() {
-                Toast.makeText(DemoActivity.this, "pay failed", Toast.LENGTH_SHORT).show();
+            public void onPayFailed(String message) {
+                Toast.makeText(DemoActivity.this, "pay failed:" + message, Toast.LENGTH_SHORT).show();
             }
 
             @Override
