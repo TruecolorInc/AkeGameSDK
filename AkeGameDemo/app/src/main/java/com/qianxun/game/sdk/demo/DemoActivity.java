@@ -9,10 +9,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -20,6 +19,7 @@ import media.ake.game.login.LoginManager;
 import media.ake.game.login.OnAppLoginListener;
 import media.ake.game.login.OnLoginListener;
 import media.ake.game.buy.OnBuyListener;
+import media.ake.game.login.model.LoginResult;
 import media.ake.game.payment.PaymentManager;
 import media.ake.game.query.OnQueryListener;
 import media.ake.game.query.PaymentItem;
@@ -78,9 +78,9 @@ public class DemoActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onLoginSuccess(@NotNull String uid, long timestamp, @Nullable String sign) {
-                            mUserId = uid;
-                            Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
+                        public void onLoginSuccess(@NonNull LoginResult result) {
+                            mUserId = result.getUserId();
+                            Toast.makeText(DemoActivity.this, "login success: " + result, Toast.LENGTH_SHORT).show();
                             shownLogicBtn();
                         }
 
@@ -103,15 +103,15 @@ public class DemoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 LoginManager.getInstance().loginByFaceBook(DemoActivity.this, new OnLoginListener() {
                     @Override
-                    public void onLoginFailed(@Nullable String message) {
-                        Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
+                    public void onLoginSuccess(@NonNull LoginResult result) {
+                        mUserId = result.getUserId();
+                        Toast.makeText(DemoActivity.this, "login success: " + result, Toast.LENGTH_SHORT).show();
+                        shownLogicBtn();
                     }
 
                     @Override
-                    public void onLoginSuccess(@NotNull String uid, long timestamp, @Nullable String sign) {
-                        mUserId = uid;
-                        Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
-                        shownLogicBtn();
+                    public void onLoginFailed(@Nullable String message) {
+                        Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -127,15 +127,15 @@ public class DemoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 LoginManager.getInstance().loginByGoogle(DemoActivity.this, new OnLoginListener() {
                     @Override
-                    public void onLoginFailed(@Nullable String message) {
-                        Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
+                    public void onLoginSuccess(@NonNull LoginResult result) {
+                        mUserId = result.getUserId();
+                        Toast.makeText(DemoActivity.this, "login success: " + result, Toast.LENGTH_SHORT).show();
+                        shownLogicBtn();
                     }
 
                     @Override
-                    public void onLoginSuccess(@NotNull String uid, long timestamp, @Nullable String sign) {
-                        mUserId = uid;
-                        Toast.makeText(DemoActivity.this, "login success: " + uid, Toast.LENGTH_SHORT).show();
-                        shownLogicBtn();
+                    public void onLoginFailed(@Nullable String message) {
+                        Toast.makeText(DemoActivity.this, "login failed: " + message, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -176,7 +176,7 @@ public class DemoActivity extends AppCompatActivity {
         PaymentManager.query(getApplicationContext(), mUserId, new OnQueryListener() {
 
             @Override
-            public void onQuerySuccess(@NotNull List<PaymentItem> items) {
+            public void onQuerySuccess(@NonNull List<PaymentItem> items) {
                 mItems = items;
                 Toast.makeText(DemoActivity.this, "query success: " + items.size(), Toast.LENGTH_SHORT).show();
             }
